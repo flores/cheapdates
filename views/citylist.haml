@@ -1,0 +1,9 @@
+%h1 All #{@city} Dates
+%a(href="/add") Add a date
+%p
+- @results.each do |pie,cost|
+  %div{"data-role" => :fieldcontain}
+    %fieldset{"data-role" => "controlgroup", "data-type" => "horizontal"}
+      %h2 <a href="/date/#{pie}/show">#{pie}</a>
+      %p <a href="/city/#{@results[pie]['city']}/show">#{@results[pie]["city"]}</a>
+      %small $#{@results[pie]["cost"]}

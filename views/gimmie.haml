@@ -1,0 +1,9 @@
+we've guessed your ip is #{@ip}, so we're guessing you're in #{@city}.
+%br here's a couple of dates nearby
+%p
+- @results.each do |pie,cost|
+  %div{"data-role" => :fieldcontain}
+    %fieldset{"data-role" => "controlgroup", "data-type" => "horizontal"}
+      %h2 <a href="/date/#{pie}/show">#{pie}</a>
+      %p <a href="/city/#{@results[pie]['city']}/show">#{@results[pie]["city"]}</a>
+      %small $#{@results[pie]["cost"]}

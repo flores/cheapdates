@@ -1,0 +1,8 @@
+%h1 #{@date_name}
+%strong Location: #{@results["#{@date_name}"]["city"]}
+%br Total cost: $#{@results["#{@date_name}"]["cost"]}
+- @loccount.each do |loc|
+  %div{"data-role" => :fieldcontain}
+    %h2 #{@results["#{@date_name}"]["location#{loc}"]["name"]}
+    - @results["#{@date_name}"]["location#{loc}"]["stuff"].each do |item|
+      %small #{@results["#{@date_name}"]["location#{loc}"]["item#{item}_name"]}: $#{@results["#{@date_name}"]["location#{loc}"]["item#{item}_cost"]}

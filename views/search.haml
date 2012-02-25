@@ -1,0 +1,11 @@
+%form{:action => "/search", :method => "post"}
+  %div{"data-role" => :fieldcontain}
+    %label{:for => "howcheap"}How cheap do you like it?
+    <select name="howcheap" id="howcheap">
+    <option value="10">$10 or less</option>
+    <option value="25">$25 or less</option>
+    <option value="50">$50 or less</option>
+    <option value="100000">I don't save money. I make money.</option>
+    </select>
+  %input{:type => "submit", :value => "gimmie!"}
+ 

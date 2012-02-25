@@ -1,0 +1,39 @@
+%form{:action => "/add", :method => "post"}
+  %div{"data-role" => :fieldcontain}
+    %fieldset{"data-role" => "controlgroup", "data-type" => "horizontal"}
+      %label{:for => "date_name"} What shall we call your date night?
+      %input{:type => "text", :name => "date_name", :length => 10, :size => 10, :id => "date_name"}
+      %label{:for => "date_name"} Where is it?
+      %input{:type => "text", :name => "date_city", :length => 10, :size => 10, :id => "date_city"}
+  %div{"data-role" => :fieldcontain}
+    %fieldset{"data-role" => "controlgroup", "data-type" => "horizontal"}
+      %label{:for => "location1_name"}Where's the first stop?
+      %input{:type => "text", :name => "location1_name", :length => 10, :size => 10, :id => "location1_name"}
+      %table{:align => "center"}
+        %tr
+          %td What'd you get?
+          %td cost?
+        - @myitemscount.each do |item|
+          %tr
+            %td
+              %input{:type => "text", :name => "location1_item#{item}_name", :length => 10, :size => 10, :id => "location1_item#{item}_name"}
+            %td{:align => "right"}
+              %input{:type => "text", :name => "location1_item#{item}_cost", :length => 5, :size => 5, :id => "location1_item#{item}_cost"}
+  - ["2", "3"].each do |newlocs|
+    %div{"data-role" => :fieldcontain}
+      %fieldset{"data-role" => "controlgroup", "data-type" => "horizontal"}
+        %label{:for => "location#{newlocs}_name"}Where's the next stop?
+        %input{:type => "text", :name => "location#{newlocs}_name", :length => 10, :size => 10, :id => "location#{newlocs}_name"}
+        %table{:align => "center"}
+          %tr
+            %td What'd you get?
+            %td cost?
+          - @myitemscount.each do |item|
+            %tr
+              %td
+                %input{:type => "text", :name => "location#{newlocs}_item#{item}_name", :length => 10, :size => 10, :id => "location#{newlocs}_item#{item}_name"}
+              %td{:align => "right"}
+                %input{:type => "text", :name => "location#{newlocs}_item#{item}_cost", :length => 5, :size => 5, :id => "location#{newlocs}_item#{item}_cost"}
+  %div{"data-role" => :fieldcontain}
+    %fieldset{"data-role" => "controlgroup", "data-type" => "horizontal"}
+  %input{:type => "submit", :value => "post it!"}
